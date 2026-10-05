@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Notificación del sistema</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            #555a68 0%,
+            #242730 45%,
+            #101217 100%
+        );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    color: white;
+}
+
+
+/* CONTENEDOR */
+
+.phone {
+    width: 100%;
+    max-width: 390px;
+
+    min-height: 700px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 18px;
+}
+
+
+/* NOTIFICACIÓN */
+
+.notification {
+
+    background: rgba(250, 250, 252, 0.97);
+
+    color: #17181c;
+
+    border-radius: 24px;
+
+    padding: 18px;
+
+    box-shadow:
+        0 20px 55px rgba(0,0,0,.4);
+
+    animation:
+        aparecer .6s ease-out;
+}
+
+
+/* CABECERA */
+
+.top {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    margin-bottom: 16px;
+}
+
+
+.icon {
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 12px;
+
+    background: #ff3b30;
+
+    display: grid;
+
+    place-items: center;
+
+    font-size: 22px;
+}
+
+
+.app {
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+.time {
+
+    font-size: 12px;
+
+    color: #777;
+
+    margin-top: 2px;
+}
+
+
+/* TEXTO */
+
+h1 {
+
+    font-size: 18px;
+
+    line-height: 1.25;
+
+    margin:
+        0 0 12px;
+}
+
+
+p {
+
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    margin: 9px 0;
+
+    color: #36373c;
+}
+
+
+/* CONTRATO */
+
+.contract {
+
+    margin:
+        18px 0;
+
+    padding:
+        16px 12px;
+
+    border-radius: 16px;
+
+    background: #f1f1f3;
+
+    text-align: center;
+}
+
+
+.contract small {
+
+    display: block;
+
+    color: #777;
+
+    font-size: 12px;
+
+    margin-bottom: 7px;
+}
+
+
+.forever {
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+    letter-spacing: .3px;
+}
+
+
+/* BOTÓN */
+
+button {
+
+    width: 100%;
+
+    border: 0;
+
+    border-radius: 14px;
+
+    padding: 14px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    color: white;
+
+    background: #007aff;
+
+    cursor: pointer;
+
+    transition:
+        transform .15s,
+        opacity .15s;
+}
+
+
+button:active {
+
+    transform: scale(.98);
+
+    opacity: .85;
+}
+
+
+/* MENSAJE FINAL */
+
+.result {
+
+    display: none;
+
+    margin-top: 14px;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    background: #e9f8ed;
+
+    color: #176b2d;
+
+    font-size: 14px;
+
+    line-height: 1.45;
+}
+
+
+.result.show {
+
+    display: block;
+
+    animation:
+        aparecer .35s ease-out;
+}
+
+
+/* PIE */
+
+.footer {
+
+    text-align: center;
+
+    margin-top: 18px;
+
+    color:
+        rgba(255,255,255,.55);
+
+    font-size: 11px;
+}
+
+
+/* ANIMACIÓN */
+
+@keyframes aparecer {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(15px)
+            scale(.97);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<main class="phone">
+
+<section class="notification">
+
+
+<div class="top">
+
+    <div class="icon">
+        🚨
+    </div>
+
+    <div>
+
+        <div class="app">
+            SISTEMA DE RELACIONES
+        </div>
+
+        <div class="time">
+            Ahora
+        </div>
+
+    </div>
+
+</div>
+
+
+<h1>
+    IMPORTANTE — MODIFICACIÓN DEL CONTRATO
+</h1>
+
+
+<p>
+
+Tras una revisión de las condiciones,
+se ha determinado que
+<strong>70 años son insuficientes.</strong>
+
+</p>
+
+
+<p>
+
+El contrato ha sido actualizado a:
+
+</p>
+
+
+<div class="contract">
+
+    <small>
+        NUEVA DURACIÓN DEL CONTRATO
+    </small>
+
+    <div class="forever">
+        ♾️ TODA LA VIDA
+    </div>
+
+</div>
+
+
+<p
+style="
+text-align:center;
+color:#777;
+">
+
+Disculpe las molestias.
+
+</p>
+
+
+<button
+id="btn"
+onclick="aceptar()">
+
+ACEPTAR NUEVAS CONDICIONES
+
+</button>
+
+
+<div
+id="ok"
+class="result">
+
+    ✅
+    <strong>
+        Actualización completada correctamente.
+    </strong>
+
+    <br><br>
+
+    Gracias por confiar en nuestro servicio.
+
+    <br>
+
+    <strong>
+        Próxima revisión: nunca. ❤️
+    </strong>
+
+</div>
+
+
+</section>
+
+
+<div class="footer">
+
+    Notificación oficial ·
+    Versión 70.0 → ♾️
+
+</div>
+
+
+</main>
+
+
+<script>
+
+function aceptar() {
+
+    document
+        .getElementById("ok")
+        .classList
+        .add("show");
+
+
+    const boton =
+        document.getElementById("btn");
+
+
+    boton.textContent =
+        "✓ CONDICIONES ACEPTADAS";
+
+
+    boton.disabled = true;
+
+
+    boton.style.opacity = ".7";
+
+}
+
+</script>
+
+
+</body>
+</html>
